@@ -1,13 +1,13 @@
-package com.onlineshoppers.Online_Shoppers_Baxckend;
+package com.onlineshoppers.Online_Shoppers_Backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class OnlineShoppersBaxckendApplication {
+public class OnlineShoppersBackendApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(OnlineShoppersBaxckendApplication.class, args);
+		SpringApplication.run(OnlineShoppersBackendApplication.class, args);
 	}
 
 }

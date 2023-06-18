@@ -1,9 +1,11 @@
 package com.onlineshoppers.Online_Shoppers_Backend.configurations;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+@Configuration
 public class CorsConfiguration {
     
     private static final String GET = "GET";

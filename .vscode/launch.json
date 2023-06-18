@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-OnlineShoppersBaxckendApplication<Online_Shoppers_Baxckend>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.onlineshoppers.Online_Shoppers_Baxckend.OnlineShoppersBaxckendApplication",
+            "projectName": "Online_Shoppers_Baxckend",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-OnlineShoppersBackendApplication<Online_Shoppers_Baxckend>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.onlineshoppers.Online_Shoppers_Backend.OnlineShoppersBackendApplication",
+            "projectName": "Online_Shoppers_Baxckend",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

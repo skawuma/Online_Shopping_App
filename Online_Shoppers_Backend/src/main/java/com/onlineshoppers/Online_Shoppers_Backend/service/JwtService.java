@@ -24,26 +24,26 @@ import com.onlineshoppers.Online_Shoppers_Backend.util.JwtUtil;
 @Service
 public class JwtService implements UserDetailsService {
 
-    @Autowired
-    private JwtUtil jwtUtil;
+    // @Autowired
+    // private JwtUtil jwtUtil;
 
     @Autowired
     private UserDao userDao;
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
+    // @Autowired
+    // private AuthenticationManager authenticationManager;
 
-    public JwtResponse createJwtToken(JwtRequest jwtRequest) throws Exception {
-        String userName = jwtRequest.getUserName();
-        String userPassword = jwtRequest.getUserPassword();
-        authenticate(userName, userPassword);
+    // public JwtResponse createJwtToken(JwtRequest jwtRequest) throws Exception {
+    //     String userName = jwtRequest.getUserName();
+    //     String userPassword = jwtRequest.getUserPassword();
+    //     authenticate(userName, userPassword);
 
-        UserDetails userDetails = loadUserByUsername(userName);
-        String newGeneratedToken = jwtUtil.generateToken(userDetails);
+    //     UserDetails userDetails = loadUserByUsername(userName);
+    //     String newGeneratedToken = jwtUtil.generateToken(userDetails);
 
-        User user = userDao.findById(userName).get();
-        return new JwtResponse(user, newGeneratedToken);
-    }
+    //     User user = userDao.findById(userName).get();
+    //     return new JwtResponse(user, newGeneratedToken);
+    // }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -68,15 +68,15 @@ public class JwtService implements UserDetailsService {
         return authorities;
     }
 
-    private void authenticate(String userName, String userPassword) throws Exception {
-        try {
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userName, userPassword));
-        } catch (DisabledException e) {
-            throw new Exception("USER_DISABLED", e);
-        } catch (BadCredentialsException e) {
-            throw new Exception("INVALID_CREDENTIALS", e);
-        }
-    }
+    // private void authenticate(String userName, String userPassword) throws Exception {
+    //     try {
+    //     authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userName, userPassword));
+    //     } catch (DisabledException e) {
+    //         throw new Exception("USER_DISABLED", e);
+    //     } catch (BadCredentialsException e) {
+    //         throw new Exception("INVALID_CREDENTIALS", e);
+    //     }
+    // }
 
     
      

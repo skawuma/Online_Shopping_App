@@ -5,12 +5,14 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import com.onlineshoppers.Online_Shoppers_Backend.dao.RoleDao;
 import com.onlineshoppers.Online_Shoppers_Backend.dao.UserDao;
 import com.onlineshoppers.Online_Shoppers_Backend.entity.Role;
 import com.onlineshoppers.Online_Shoppers_Backend.entity.User;
 
+@Service
 public class UserService {
 
 

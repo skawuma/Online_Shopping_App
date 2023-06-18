@@ -34,15 +34,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfiguration {
-    @Autowired
-    private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
+
+    // @Autowired
+    // private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
 
     @Autowired
     private JwtRequestFilter jwtRequestFilter;
 
-    // @Primary
+    @Primary
     @Bean
-    public UserDetailsService jwtService() {
+    public UserDetailsService jwtServices() {
 
         return new JwtService();
     }
@@ -51,7 +52,7 @@ public class WebSecurityConfiguration {
     public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
 
-        authProvider.setUserDetailsService(jwtService());
+        authProvider.setUserDetailsService(jwtServices());
         authProvider.setPasswordEncoder(passwordEncoder());
 
         return authProvider;
@@ -83,7 +84,7 @@ public class WebSecurityConfiguration {
                 .anyRequest()
                 .authenticated()
                 .and()
-                .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint)
+                .exceptionHandling()
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)

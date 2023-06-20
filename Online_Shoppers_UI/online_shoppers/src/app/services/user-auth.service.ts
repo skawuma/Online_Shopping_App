@@ -11,15 +11,15 @@ export class UserAuthService {
   }
 
   public getRoles(): [] {
-    return JSON.parse(localStorage.getItem('roles')|| 'null'); 
+    return JSON.parse(localStorage.getItem('roles') || 'null'); 
   }
-
+//|| 'null'
   public setToken(jwtToken: string) {
     localStorage.setItem('jwtToken', jwtToken);
   }
 
-  public getToken(): string {
-    return localStorage.getItem('jwtToken')|| 'null' ;
+  public getToken(): any {
+    return localStorage.getItem('jwtToken') ;
   }
 
   public clear() {

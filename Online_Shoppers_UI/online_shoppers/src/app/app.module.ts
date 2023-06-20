@@ -15,6 +15,14 @@ import { AuthGuard } from './_auth/auth.guard';
 import { UserService } from './services/user.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './_auth/auth.interceptor';
+//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatToolbarModule} from '@angular/material/toolbar';
+
+import { from } from 'rxjs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+
+
 
 @NgModule({
   declarations: [
@@ -31,7 +39,11 @@ import { AuthInterceptor } from './_auth/auth.interceptor';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule
+    // NgbModule.forRoot()
   ],
   providers: [
   

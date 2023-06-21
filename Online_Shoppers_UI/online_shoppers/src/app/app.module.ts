@@ -15,12 +15,19 @@ import { AuthGuard } from './_auth/auth.guard';
 import { UserService } from './services/user.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './_auth/auth.interceptor';
-//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {MatToolbarModule} from '@angular/material/toolbar';
 
-import { from } from 'rxjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule} from '@angular/material/button';
+
+
+import { MatButtonModule } from '@angular/material/button';
+
+ import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+
+ import { MatInputModule } from '@angular/material/input';
+
+ import { MatToolbarModule } from '@angular/material/toolbar';
+
+ 
 
 
 
@@ -41,8 +48,10 @@ import {MatButtonModule} from '@angular/material/button';
     HttpClientModule,
     RouterModule,
     BrowserAnimationsModule,
+    MatFormFieldModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule 
     // NgbModule.forRoot()
   ],
   providers: [

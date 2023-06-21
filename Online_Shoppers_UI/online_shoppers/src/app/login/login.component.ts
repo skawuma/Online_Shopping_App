@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserAuthService } from '../services/user-auth.service';
 import { UserService } from '../services/user.service';
+import { GlobalConstants } from '../services/global-constants';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,6 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   constructor(
     private userService: UserService,
     private userAuthService: UserAuthService,

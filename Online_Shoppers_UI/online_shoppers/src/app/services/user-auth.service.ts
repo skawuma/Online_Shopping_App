@@ -18,8 +18,8 @@ export class UserAuthService {
     localStorage.setItem('jwtToken', jwtToken);
   }
 
-  public getToken(): any {
-    return localStorage.getItem('jwtToken') ;
+  public getToken():string{
+    return localStorage.getItem('jwtToken')|| 'null' ;
   }
 
   public clear() {

@@ -26,6 +26,7 @@ import { MatButtonModule } from '@angular/material/button';
  import { MatInputModule } from '@angular/material/input';
 
  import { MatToolbarModule } from '@angular/material/toolbar';
+import { AddNewproductComponent } from './add-newproduct/add-newproduct.component';
 
  
 
@@ -39,7 +40,8 @@ import { MatButtonModule } from '@angular/material/button';
     HeaderComponent,
     HomeComponent,
     LoginComponent,
-    UserComponent
+    UserComponent,
+    AddNewproductComponent
   ],
   imports: [
     BrowserModule,

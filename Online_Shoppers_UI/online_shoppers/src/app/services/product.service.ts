@@ -9,8 +9,8 @@ export class ProductService {
 
   constructor(private httpclient: HttpClient) { }
 
-  public addProduct(product:Product){
-    
+  public addProduct(product:FormData){
+
     return this.httpclient.post<Product>("http://localhost:7070/addNewProduct", product);
 
 

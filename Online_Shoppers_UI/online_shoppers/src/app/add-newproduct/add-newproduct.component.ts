@@ -3,6 +3,9 @@ import { Product } from '../_model/product.model';
 import { NgForm } from '@angular/forms';
 import { ProductService } from '../services/product.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { FileHandle } from '../_model/file-handle.model';
+import { DomSanitizer } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-add-newproduct',
@@ -15,26 +18,64 @@ export class AddNewproductComponent implements OnInit {
     productName: '',
     productDescription: '',
     productDiscountedPrice: 0,
-    productActualPrice: 0
+    productActualPrice: 0,
+    productImages: []
   }
 
-  constructor( private productService:ProductService) { }
+
+  constructor( private productService:ProductService, 
+  private sanitizer:  DomSanitizer){ }
 
   ngOnInit(): void {
 
 
   }
 
-  addProduct(productForm: NgForm){
+  addProduct(productForm: NgForm) {
 
-  this.productService.addProduct(this.product).subscribe(
-    (response:Product)=>{
-      productForm.reset();
-  },
-  (error:HttpErrorResponse)=> {
-    console.log(error);
+    const  productFormData =this.prepareFormData(this.product);
+    this.productService.addProduct(productFormData).subscribe(
+      (response: Product) => {
+        productForm.reset();
+      }, 
+      (error: HttpErrorResponse) => {
+        console.log(error);
+      }
+
+    );
   }
-  
+prepareFormData(product:Product):FormData{
+const formData = new FormData();
+formData.append('product',
+new Blob([JSON.stringify(product)], {type: 'application/json'})
 );
+for(var i=0; i<product.productImages.length;i++){
+
+  formData.append(
+    'imageFile',
+    product.productImages[i].file,
+    product.productImages[i].file.name
+
+  );
 }
+    return formData;  
+}
+
+
+  onFileSelected(event: any) {
+    if(event.target.files){
+    console.log(event);
+
+    const targFile = event.target.files[0];
+    const fileHandle: FileHandle = {
+      file: targFile,
+      url: this.sanitizer.bypassSecurityTrustUrl(
+       window.URL.createObjectURL(targFile)
+
+  )
+      }
+      this.product.productImages.push(fileHandle); 
+}
+}
+
 }

@@ -77,5 +77,9 @@ for(var i=0; i<product.productImages.length;i++){
       this.product.productImages.push(fileHandle); 
 }
 }
+removeImages(i: number)
+{
+this.product.productImages.splice(i,1)
 
+}
 }

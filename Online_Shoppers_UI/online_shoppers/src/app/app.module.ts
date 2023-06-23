@@ -27,6 +27,7 @@ import { MatButtonModule } from '@angular/material/button';
 
  import { MatToolbarModule } from '@angular/material/toolbar';
 import { AddNewproductComponent } from './add-newproduct/add-newproduct.component';
+import {MatGridListModule} from '@angular/material/grid-list';
 
  
 
@@ -53,7 +54,8 @@ import { AddNewproductComponent } from './add-newproduct/add-newproduct.componen
     MatFormFieldModule,
     MatToolbarModule,
     MatButtonModule,
-    MatInputModule 
+    MatInputModule, 
+    MatGridListModule
     // NgbModule.forRoot()
   ],
   providers: [

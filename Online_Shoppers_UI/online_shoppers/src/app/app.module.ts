@@ -28,6 +28,7 @@ import { MatButtonModule } from '@angular/material/button';
  import { MatToolbarModule } from '@angular/material/toolbar';
 import { AddNewproductComponent } from './add-newproduct/add-newproduct.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { DragDirective } from './drag.directive';
 
  
 
@@ -42,7 +43,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     HomeComponent,
     LoginComponent,
     UserComponent,
-    AddNewproductComponent
+    AddNewproductComponent,
+    DragDirective
   ],
   imports: [
     BrowserModule,

@@ -13,6 +13,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./add-newproduct.component.css']
 })
 export class AddNewproductComponent implements OnInit {
+[x: string]: any;
 
   product: Product ={
     productName: '',
@@ -37,6 +38,7 @@ export class AddNewproductComponent implements OnInit {
     this.productService.addProduct(productFormData).subscribe(
       (response: Product) => {
         productForm.reset();
+        this.product.productImages=[];
       }, 
       (error: HttpErrorResponse) => {
         console.log(error);
@@ -72,8 +74,8 @@ for(var i=0; i<product.productImages.length;i++){
       url: this.sanitizer.bypassSecurityTrustUrl(
        window.URL.createObjectURL(targFile)
 
-  )
-      }
+      )
+    }
       this.product.productImages.push(fileHandle); 
 }
 }
@@ -81,5 +83,10 @@ removeImages(i: number)
 {
 this.product.productImages.splice(i,1)
 
+}
+
+fileDropped(fileHandle:FileHandle){
+this.product.productImages.push(fileHandle );
+  
 }
 }

@@ -80,7 +80,7 @@ public class WebSecurityConfiguration {
 
                 .authorizeHttpRequests()
 
-                .requestMatchers("/authenticate", "/registerNewUser").permitAll()
+                .requestMatchers("/authenticate", "/registerNewUser","/getAllProducts").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()

@@ -29,8 +29,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { AddNewproductComponent } from './add-newproduct/add-newproduct.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { DragDirective } from './drag.directive';
+import { ShowProductDetailsComponent } from './show-product-details/show-product-details.component';
 
- 
+import {MatTableModule} from '@angular/material/table';
 
 
 
@@ -44,7 +45,8 @@ import { DragDirective } from './drag.directive';
     LoginComponent,
     UserComponent,
     AddNewproductComponent,
-    DragDirective
+    DragDirective,
+    ShowProductDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,8 @@ import { DragDirective } from './drag.directive';
     MatToolbarModule,
     MatButtonModule,
     MatInputModule, 
-    MatGridListModule
+    MatGridListModule,
+    MatTableModule
     // NgbModule.forRoot()
   ],
   providers: [

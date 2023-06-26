@@ -12,7 +12,11 @@ export class ProductService {
   public addProduct(product:FormData){
 
     return this.httpclient.post<Product>("http://localhost:7070/addNewProduct", product);
+  }
 
+  public getAllProducts(){
+
+return this.httpclient.get<Product[]> ("http://localhost:7070/getAllProducts");
 
   }
 }

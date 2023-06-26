@@ -25,15 +25,13 @@ public class Product {
     private Double productActualPrice;
 
 
-
-
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name= "product_images", 
         joinColumns = {
             @JoinColumn(name= "product_id")
         },
         inverseJoinColumns = {
-            @JoinColumn(name = "image_id")
+            @JoinColumn(name = "image_id",referencedColumnName="id")
         }
 
     )

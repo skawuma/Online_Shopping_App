@@ -9,16 +9,16 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./show-product-details.component.css']
 })
 export class ShowProductDetailsComponent implements OnInit {
+
   productDetails:Product[]=[];
-  displayedColumns: string[] = ['Id', 'Product Name', 'Product Description', 'Product Discounted Price','Product Actual Price'];
+  displayedColumns: string[] = ['Id', 'Product Name', 'Product Description', 'Product Discounted Price','Product Actual Price', 'Edit','Delete'];
 
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
     this.getAllProducts();
   }
-
-
+ 
 
   public getAllProducts() {
     this.productService.getAllProducts().subscribe(
@@ -31,6 +31,18 @@ export class ShowProductDetailsComponent implements OnInit {
       }
 
 
+    );
+  }
+  public deleteProduct(productId: number) {
+    this.productService.deleteProduct(productId).subscribe(
+      (resp) => {
+        this.getAllProducts();
+      },
+
+      (error: HttpErrorResponse) => {
+
+        console.log(error);
+      }
     );
   }
 }

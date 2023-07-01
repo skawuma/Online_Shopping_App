@@ -30,7 +30,7 @@ import { AddNewproductComponent } from './add-newproduct/add-newproduct.componen
 import {MatGridListModule} from '@angular/material/grid-list';
 import { DragDirective } from './drag.directive';
 import { ShowProductDetailsComponent } from './show-product-details/show-product-details.component';
-
+import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
 
 
@@ -60,7 +60,9 @@ import {MatTableModule} from '@angular/material/table';
     MatButtonModule,
     MatInputModule, 
     MatGridListModule,
-    MatTableModule
+    MatTableModule,
+    MatIconModule
+    
     // NgbModule.forRoot()
   ],
   providers: [

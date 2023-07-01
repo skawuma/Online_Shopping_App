@@ -39,12 +39,22 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,
             FilterChain filterChain) throws ServletException, IOException, java.io.IOException {
 
-        if (httpServletRequest.getServletPath().matches("/user/signup|/authenticate")) {
+        if (httpServletRequest.getServletPath().matches("/authenticate")) {
             filterChain.doFilter(httpServletRequest, httpServletResponse);
         } else {
+
+    //       httpServletResponse.setHeader("Access-Control-Allow-Origin", "*");
+    //    httpServletResponse.setHeader("Access-Control-Allow-Credentials", "true");
+    //     httpServletResponse.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD");
+    //     httpServletResponse.setHeader("Access-Control-Allow-Headers", "Origin, Accept, X-Requested-With, Content-Type, "
+    //             + "Access-Control-Request-Method, Access-Control-Request-Headers, Authorization");
+    //               if ( httpServletRequest.getMethod().equals("OPTIONS") ) {
+    //         httpServletResponse.setStatus(HttpServletResponse.SC_OK);
+    //         return;
+    //    }
             String authorizationHeader = httpServletRequest.getHeader("Authorization");
             // String token =null;
-
+   
             // String userName;
             token = authorizationHeader.substring(7);
             if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {

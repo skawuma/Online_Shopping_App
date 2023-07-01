@@ -72,7 +72,7 @@ for(var i=0; i<product.productImages.length;i++){
     const fileHandle: FileHandle = {
       file: targFile,
       url: this.sanitizer.bypassSecurityTrustUrl(
-       window.URL.createObjectURL(targFile)
+        window.URL.createObjectURL(targFile)
 
       )
     }

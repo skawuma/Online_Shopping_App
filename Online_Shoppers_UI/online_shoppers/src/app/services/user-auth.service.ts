@@ -34,7 +34,7 @@ export class UserAuthService {
 public isAdmin(){
 
 const roles: any[]= this.getRoles();
-console.log(roles);
+//console.log(roles);
 return  roles[0].roleName ==='Admin';
 
 }
@@ -43,7 +43,7 @@ return  roles[0].roleName ==='Admin';
 public isUser(){
 
   const roles: any[]= this.getRoles();
-  console.log(roles);
+ // console.log(roles);
   return  roles[0].roleName ==='User';
   
   }

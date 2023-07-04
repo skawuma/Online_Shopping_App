@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '../_model/product.model';
 import { Observable } from 'rxjs';
+import { AnimationStyleMetadata } from '@angular/animations';
 
 @Injectable({
   providedIn: 'root'
@@ -24,17 +25,17 @@ return this.httpclient.get<Product[]> ("http://localhost:7070/api/product/getAll
 
   public  deleteProduct(productId: number) {
     return this.httpclient.delete("http://localhost:7070/api/product/deleteProductDetails/"
-    + productId
-   
-    // , {
-    //   headers: new HttpHeaders()
-    //   .set('Content-Type', "application/json")
-    //   .set('Access-Control-Allow-Origin', '*')
-     
-
-    // }
-    
+    + productId  
     );
+  }
+  public getProductDetailsById(productId:any): Observable<any>{
+    return this.httpclient.get("http://localhost:7070/api/product/getProductDetailsById/ "
+    + productId  
+    );
+  }
+
+  public getProductDetailsById1(productId:any): Observable<any> {
+    return this.httpclient.get(`${this.baseUrl}/api/product/getProductDetailsById/${productId}`, { responseType: 'text' });
   }
 
   public deleteProduct1(productId: number): Observable<any> {

@@ -102,7 +102,7 @@ public class WebSecurityConfiguration {
 
                 .authorizeHttpRequests()
 
-                .requestMatchers("/authenticate", "/registerNewUser", "/getAllProducts")
+                .requestMatchers("/authenticate", "/registerNewUser", "/getAllProducts", "/deleteProductDetails/{productId}", "/getProductDetailsById/ {productId}")
 
                 .permitAll()
                 .and()
@@ -110,9 +110,8 @@ public class WebSecurityConfiguration {
                 .requestMatchers("/**")
                 .authenticated()
                 .and()
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
+                .sessionManagement(management -> management
+                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider())
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 

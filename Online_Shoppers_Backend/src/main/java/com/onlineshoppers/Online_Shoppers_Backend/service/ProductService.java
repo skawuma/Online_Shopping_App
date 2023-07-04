@@ -28,11 +28,17 @@ public Product addNewPdroduct(Product product){
 public void deleteProductDetails(Integer productId){
 
   productDao.deleteById(productId);
+}
+
+ public Product getProductDetailsById(Integer productId){
+
+    return productDao.findById(productId).get();
+  }
 
 
 
 }
 
-    }
+
     
 

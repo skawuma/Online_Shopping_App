@@ -3,6 +3,7 @@ package com.onlineshoppers.Online_Shoppers_Backend.entity;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -19,9 +20,14 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer productId;
+
     private String productName;
+
+    @Column(length = 2000)
     private String productDescription;
+
     private Double productDiscountedPrice;
+
     private Double productActualPrice;
 
 

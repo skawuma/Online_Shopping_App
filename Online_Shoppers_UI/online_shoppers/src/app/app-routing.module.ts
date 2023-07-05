@@ -11,7 +11,7 @@ import { ShowProductDetailsComponent } from './show-product-details/show-product
 import { ProductResolveService } from './services/product-resolve.service';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent},
   { path: 'admin', component: AdminComponent, canActivate:[AuthGuard], data:{roles:['Admin']} },
   { path: 'user', component: UserComponent ,  canActivate:[AuthGuard], data:{roles:['User']} },
   { path: 'login', component: LoginComponent },
@@ -25,7 +25,7 @@ const routes: Routes = [
 
 },
 
-  {path: 'showProductDetails', component: ShowProductDetailsComponent}
+  {path: 'showProductDetails', component: ShowProductDetailsComponent ,canActivate:[AuthGuard], data:{roles:['Admin']}}
 
 ];
 

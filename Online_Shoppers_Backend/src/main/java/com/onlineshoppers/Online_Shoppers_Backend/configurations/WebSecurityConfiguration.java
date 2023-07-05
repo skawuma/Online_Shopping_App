@@ -102,14 +102,16 @@ public class WebSecurityConfiguration {
 
                 .authorizeHttpRequests()
 
-                .requestMatchers("/authenticate", "/registerNewUser", "/getAllProducts", "/deleteProductDetails/{productId}", "/getProductDetailsById/ {productId}")
+                .requestMatchers("/authenticate", "/registerNewUser","/getAllProducts")
 
                 .permitAll()
-                .and()
-                .authorizeHttpRequests()
-                .requestMatchers("/**")
+                .anyRequest()
                 .authenticated()
                 .and()
+               // .authorizeHttpRequests()
+                //.requestMatchers("/**")
+               // .authenticated()
+               // .and()
                 .sessionManagement(management -> management
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider())

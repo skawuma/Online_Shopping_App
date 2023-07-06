@@ -1,36 +1,18 @@
 package com.onlineshoppers.Online_Shoppers_Backend.controller;
-
-import java.util.HashSet;
-import java.util.Set;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-
 import com.onlineshoppers.Online_Shoppers_Backend.dao.UserDao;
 import com.onlineshoppers.Online_Shoppers_Backend.entity.JwtRequest;
 import com.onlineshoppers.Online_Shoppers_Backend.entity.JwtResponse;
-import com.onlineshoppers.Online_Shoppers_Backend.entity.Role;
 import com.onlineshoppers.Online_Shoppers_Backend.entity.User;
 import com.onlineshoppers.Online_Shoppers_Backend.service.JwtService;
 import com.onlineshoppers.Online_Shoppers_Backend.util.JwtUtil;
-
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authentication.BadCredentialsException;

@@ -12,7 +12,7 @@ import com.onlineshoppers.Online_Shoppers_Backend.service.JwtService;
 import com.onlineshoppers.Online_Shoppers_Backend.util.JwtUtil;
 
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.ExpiredJwtException;
+
 import io.jsonwebtoken.io.IOException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -29,11 +29,10 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     private JwtService jwtService;
 
     private String userName;
-        Claims claims;
-    // private String userName;
-    String token;
-    public static String CURRENT_USER= "";
+    Claims claims;
 
+    String token;
+    public static String CURRENT_USER = "";
 
     // @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,
@@ -43,24 +42,13 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             filterChain.doFilter(httpServletRequest, httpServletResponse);
         } else {
 
-    //       httpServletResponse.setHeader("Access-Control-Allow-Origin", "*");
-    //    httpServletResponse.setHeader("Access-Control-Allow-Credentials", "true");
-    //     httpServletResponse.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD");
-    //     httpServletResponse.setHeader("Access-Control-Allow-Headers", "Origin, Accept, X-Requested-With, Content-Type, "
-    //             + "Access-Control-Request-Method, Access-Control-Request-Headers, Authorization");
-    //               if ( httpServletRequest.getMethod().equals("OPTIONS") ) {
-    //         httpServletResponse.setStatus(HttpServletResponse.SC_OK);
-    //         return;
-    //    }
             String authorizationHeader = httpServletRequest.getHeader("Authorization");
-            // String token =null;
-   
-            // String userName;
+
             token = authorizationHeader.substring(7);
             if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
                 token = authorizationHeader.substring(7);
                 userName = jwtUtil.extractUsername(token);
-                CURRENT_USER=userName; 
+                CURRENT_USER = userName;
                 claims = jwtUtil.extractAllClaims(token);
             }
 
@@ -79,44 +67,4 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         }
     }
 
-
-
-
-
-    // @Override
-    // protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException, java.io.IOException {
-
-    //     final String requestTokenHeader = request.getHeader("Authorization");
-
-    //     String username = null;
-    //     String jwtToken = null;
-
-    //     if (requestTokenHeader != null && requestTokenHeader.startsWith("Bearer ")) {
-    //         jwtToken = requestTokenHeader.substring(7);
-    //         try {
-            
-    //             username = jwtUtil.extractUsername(jwtToken);
-    //         } catch (IllegalArgumentException e) {
-    //             System.out.println("Unable to get JWT Token");
-    //         } catch (ExpiredJwtException e) {
-    //             System.out.println("JWT Token has expired");
-    //         }
-    //     } else {
-    //         System.out.println("JWT token does not start with Bearer");
-    //     }
-
-    //     if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-
-    //         UserDetails userDetails = jwtService.loadUserByUsername(username);
-
-    //         if (jwtUtil.validateToken(jwtToken, userDetails)) {
-
-    //             UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
-    //             usernamePasswordAuthenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-    //             SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
-    //         }
-    //     }
-    //     filterChain.doFilter(request, response);
-
-    // }
 }

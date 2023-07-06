@@ -5,21 +5,16 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import com.onlineshoppers.Online_Shoppers_Backend.entity.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.onlineshoppers.Online_Shoppers_Backend.dao.UserDao;
 import com.onlineshoppers.Online_Shoppers_Backend.entity.User;
-
-import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Function;
-
-import io.jsonwebtoken.io.Decoder;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import java.security.Key;
@@ -75,14 +70,7 @@ public class JwtUtil {
 	        Map<String, Object> claims = new HashMap<>();
 			
 			claims.put("role", role);
-			// claims.put ("roles", roles);
-
-	        // return Jwts.builder()
-	        //         .setClaims(claims)
-	        //         .setSubject(userDetails.getUsername())
-	        //         .setIssuedAt(new Date(System.currentTimeMillis()))
-	        //         .setExpiration(new Date(System.currentTimeMillis() +1000*60*30))
-	        //         .signWith(getSignKey(), SignatureAlgorithm.HS256).compact();
+		
 	   
 			return createToken1(claims,userDetails);
 		}

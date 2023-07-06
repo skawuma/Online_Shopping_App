@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestPart;
@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-import com.mysql.cj.conf.BooleanPropertyDefinition.AllowableValues;
+
 import com.onlineshoppers.Online_Shoppers_Backend.entity.ImageModel;
 import com.onlineshoppers.Online_Shoppers_Backend.entity.Product;
 import com.onlineshoppers.Online_Shoppers_Backend.service.ProductService;

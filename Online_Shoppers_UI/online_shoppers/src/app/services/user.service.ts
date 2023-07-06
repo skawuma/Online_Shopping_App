@@ -34,7 +34,7 @@ export class UserService {
     });
   }
 
-  public roleMatch(allowedRoles: string | any[]): boolean |any{
+  public roleMatch(allowedRoles:any):any {
     let isMatch = false;
     const userRoles: any = this.userAuthService.getRoles();
 

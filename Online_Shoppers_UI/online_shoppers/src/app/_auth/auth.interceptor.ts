@@ -24,11 +24,11 @@ export class AuthInterceptor implements HttpInterceptor {
     if (req.headers.get('No-Auth') === 'True') {
       return next.handle(req.clone());
     }
-
-    const token = this.userAuthService.getToken();
-
+    const token = localStorage.getItem('jwtToken');
+  //  const token = this.userAuthService.getToken();
+if(token){
     req = this.addToken(req, token);
-
+}
     return next.handle(req).pipe(
         catchError(
             (err:HttpErrorResponse) => {

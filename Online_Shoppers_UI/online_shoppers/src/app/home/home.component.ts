@@ -19,13 +19,13 @@ export class HomeComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.getAllProducts();
+   this.getProducts();
 
   }
 
 
 
-  public getAllProducts() {
+  public getProducts() {
     this.productService.getAllProducts()
     
     .pipe(

@@ -6,7 +6,6 @@ import com.onlineshoppers.Online_Shoppers_Backend.entity.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
-
 import com.onlineshoppers.Online_Shoppers_Backend.dao.UserDao;
 import com.onlineshoppers.Online_Shoppers_Backend.entity.User;
 import java.util.Date;

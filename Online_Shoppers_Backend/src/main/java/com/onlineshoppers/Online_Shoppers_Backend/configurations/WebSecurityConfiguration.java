@@ -97,7 +97,7 @@ public class WebSecurityConfiguration {
                 .cors(Customizer.withDefaults())
 
                 .authorizeHttpRequests()
-                .requestMatchers("/authenticate", "/registerNewUser","/api/product/getAllProducts")
+                .requestMatchers("/authenticate", "/registerNewUser","/api/product/getAllProducts","api/product/getProductDetailsById/{productId}")
                 .permitAll()
                 .and()
                .authorizeHttpRequests()

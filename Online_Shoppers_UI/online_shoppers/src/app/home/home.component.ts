@@ -4,6 +4,7 @@ import { map } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Product } from '../_model/product.model';
 import { ImageProcessingService } from '../services/image-processing.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,7 @@ export class HomeComponent implements OnInit {
   productDetails:Product[]=[];
   constructor(private productService: ProductService,
     private imageProcessingService:ImageProcessingService,
+    private router :Router
     ) { }
 
   ngOnInit(): void {
@@ -42,6 +44,14 @@ export class HomeComponent implements OnInit {
 
 
     );
+  }
+
+  showProductDetails(productId: any){
+
+    this.router.navigate(['/productVeiwDetails' , {productId: productId}])
+
+
+
   }
 
 

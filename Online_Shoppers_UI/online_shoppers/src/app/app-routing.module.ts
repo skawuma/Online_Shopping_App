@@ -9,6 +9,7 @@ import { UserComponent } from './user/user.component';
 import { AddNewproductComponent } from './add-newproduct/add-newproduct.component';
 import { ShowProductDetailsComponent } from './show-product-details/show-product-details.component';
 import { ProductResolveService } from './services/product-resolve.service';
+import { ProductViewDetailsComponent } from './product-view-details/product-view-details.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -25,7 +26,14 @@ const routes: Routes = [
 
 },
 
-  {path: 'showProductDetails', component: ShowProductDetailsComponent ,canActivate:[AuthGuard], data:{roles:['Admin']}}
+  {path: 'showProductDetails', component: ShowProductDetailsComponent ,canActivate:[AuthGuard], data:{roles:['Admin']}},
+  {path: 'productVeiwDetails', component:ProductViewDetailsComponent ,
+resolve:{
+product: ProductResolveService
+
+}
+
+}
 
 ];
 

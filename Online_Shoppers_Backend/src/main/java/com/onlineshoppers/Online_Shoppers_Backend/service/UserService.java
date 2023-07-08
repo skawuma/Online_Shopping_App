@@ -50,8 +50,8 @@ public class UserService {
        User user = new User();
        user.setUserName("ska123");
        user.setUserPassword(getEncodedPassword("ska@123"));
-       user.setUserFirstName("raj");
-       user.setUserLastName("sharma");
+       user.setUserFirstName("Samuel");
+       user.setUserLastName("Kawuma");
        Set<Role> userRoles = new HashSet<>();
        userRoles.add(userRole);
        user.setRole(userRoles);

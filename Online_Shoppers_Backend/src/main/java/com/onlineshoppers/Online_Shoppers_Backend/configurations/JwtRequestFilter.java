@@ -38,7 +38,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,
             FilterChain filterChain) throws ServletException, IOException, java.io.IOException {
 
-        if (httpServletRequest.getServletPath().matches("/authenticate|/api/product/getAllProducts")) {
+        if (httpServletRequest.getServletPath().matches("/authenticate|/api/product/getAllProducts|api/product/getProductDetailsById/productId")) {
             filterChain.doFilter(httpServletRequest, httpServletResponse);
         } else {
 
@@ -64,7 +64,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 }
             }
             filterChain.doFilter(httpServletRequest, httpServletResponse);
-        }
+     }
     }
 
 }

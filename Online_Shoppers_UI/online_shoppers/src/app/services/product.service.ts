@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Product } from '../_model/product.model';
 import { Observable } from 'rxjs';
 import { AnimationStyleMetadata } from '@angular/animations';
+import { OrderDetails } from '../_model/order-detail.model';
 
 @Injectable({
   providedIn: 'root'
@@ -41,4 +42,16 @@ return this.httpclient.get<Product[]> ("http://localhost:7070/api/product/getAll
   public deleteProduct1(productId: number): Observable<any> {
     return this.httpclient.delete(`${this.baseUrl}/api/product/deleteProductDetails/${productId}`, { responseType: 'text' });
   }
+
+  public  getProductDetails(isSingleProductCheckout: any,productId: any) {
+    return this.httpclient.get<Product[]>("http://localhost:7070/api/product/getProductDetails/"+isSingleProductCheckout+"/"
+    + productId  
+    );
+  }
+
+  public placeOrder(orderDetails:OrderDetails){
+
+    return this.httpclient.post("http://localhost:7070/placeOrder",orderDetails);
+  }
+
 }

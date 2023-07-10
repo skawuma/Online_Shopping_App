@@ -27,18 +27,12 @@ public class OrderDetail {
     private String orderStatus;
     private Double orderAmount;
 
-    @OneToOne
+    @ManyToOne
     private Product product;
 
     @ManyToOne
     private User user;
 
-
-    
-
-
-
-  
 
 
     public OrderDetail(String orderFullName, String orderFullAddress, String orderContactNumber,

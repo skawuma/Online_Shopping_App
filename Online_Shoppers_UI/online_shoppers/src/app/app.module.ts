@@ -37,6 +37,7 @@ import { ShowProductImagesDialogComponent } from './show-product-images-dialog/s
 import { ProductViewDetailsComponent } from './product-view-details/product-view-details.component';
 import { BuyProductComponent } from './buy-product/buy-product.component';
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -55,7 +56,8 @@ import { OrderConfirmationComponent } from './order-confirmation/order-confirmat
     ShowProductImagesDialogComponent,
     ProductViewDetailsComponent,
     BuyProductComponent,
-    OrderConfirmationComponent
+    OrderConfirmationComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

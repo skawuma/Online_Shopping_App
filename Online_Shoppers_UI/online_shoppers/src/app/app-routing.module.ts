@@ -13,13 +13,22 @@ import { ProductViewDetailsComponent } from './product-view-details/product-view
 import { BuyProductComponent } from './buy-product/buy-product.component';
 import { BuyProductResolverService } from './services/buy-product-resolver.service';
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard], data: { roles: ['Admin'] } },
-  { path: 'user', component: UserComponent, canActivate: [AuthGuard], data: { roles: ['User'] } },
+  { path: '',
+   component: HomeComponent },
+   { path: 'register',
+   component: RegisterComponent },
+  { path: 'admin',
+   component: AdminComponent, canActivate: [AuthGuard], data: { roles: ['Admin'] } },
+  { path: 'user',
+   component: UserComponent, canActivate: [AuthGuard], data: { roles: ['User'] } },
   {
-    path: 'buyProduct', component: BuyProductComponent, canActivate: [AuthGuard], data: { roles: ['User'] },
+    path: 'buyProduct', 
+    component: BuyProductComponent, 
+    canActivate: [AuthGuard], 
+    data: { roles: ['User'] },
 
     resolve: {
       productDetails: BuyProductResolverService
@@ -27,10 +36,15 @@ const routes: Routes = [
 
 
   },
-  { path: 'login', component: LoginComponent },
-  { path: 'forbidden', component: ForbiddenComponent },
+  { path: 'login', 
+  component: LoginComponent },
+  { path: 'forbidden',
+   component: ForbiddenComponent },
   {
-    path: 'addNewproduct', component: AddNewproductComponent, canActivate: [AuthGuard], data: { roles: ['Admin'] },
+    path: 'addNewproduct', 
+    component: AddNewproductComponent, 
+    canActivate: [AuthGuard], 
+    data: { roles: ['Admin'] },
 
     resolve: {
       product: ProductResolveService
@@ -39,10 +53,16 @@ const routes: Routes = [
 
   },
   {
-    path: 'OrderConfirm', component: OrderConfirmationComponent, canActivate: [AuthGuard], data: { roles: ['User'] },
+    path: 'OrderConfirm', 
+    component: OrderConfirmationComponent,
+     canActivate: [AuthGuard], 
+     data: { roles: ['User'] },
   },
 
-  { path: 'showProductDetails', component: ShowProductDetailsComponent, canActivate: [AuthGuard], data: { roles: ['Admin'] } },
+  { path: 'showProductDetails', 
+  component: ShowProductDetailsComponent, 
+  canActivate: [AuthGuard], 
+  data: { roles: ['Admin'] } },
   {
     path: 'productVeiwDetails', component: ProductViewDetailsComponent,
     resolve: {

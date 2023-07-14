@@ -16,11 +16,15 @@ export class UserService {
   ) {}
 
   public login(loginData: any) {
-    return this.httpclient.post(this.PATH_OF_API + '/authenticate', loginData, {
-      headers: this.requestHeader,
-    });
+    return this.httpclient.post(this.PATH_OF_API + '/authenticate', loginData,
+     {
+     headers: this.requestHeader,
+    }
+    );
   }
-
+  public register(registerData:any){
+    return this.httpclient.post(this.PATH_OF_API + '/registerNewUser', registerData );
+  }
   public forUser() {
     return this.httpclient.get(this.PATH_OF_API + '/forUser', {
       responseType: 'text',

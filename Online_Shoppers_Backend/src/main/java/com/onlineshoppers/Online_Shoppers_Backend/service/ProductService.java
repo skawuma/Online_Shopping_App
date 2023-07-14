@@ -24,7 +24,7 @@ public class ProductService {
   }
 
   public List<Product> getAllProducts(int pageNumber) {
-    Pageable pageable =PageRequest.of(pageNumber,3);
+    Pageable pageable =PageRequest.of(pageNumber,1);
 
     return (List<Product>) productDao.findAll( pageable);
   }

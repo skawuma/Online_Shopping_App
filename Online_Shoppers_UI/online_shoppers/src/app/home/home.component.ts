@@ -12,8 +12,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  
-
+  showLoadButton =false;
+  pageNumber:number=0;
   productDetails:Product[]=[];
   constructor(private productService: ProductService,
     private imageProcessingService:ImageProcessingService,
@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
 
 
   public getProducts() {
-    this.productService.getAllProducts()
+    this.productService.getAllProducts(this.pageNumber)
     
     .pipe(
     map ((x:Product[],i)=>  x.map((product:Product )=>this.imageProcessingService.createImages(product)))
@@ -36,7 +36,13 @@ export class HomeComponent implements OnInit {
     .subscribe(
       (resp: Product[]) => {
         console.log(resp);
-        this.productDetails=resp;
+        if(resp.length ==3 ){
+          this.showLoadButton =true;
+        }else{
+          this.showLoadButton= false;
+        }
+        resp.forEach(p=> this.productDetails.push(p));
+       // this.productDetails=resp;
       }, (error: HttpErrorResponse) => {
 
         console.log(console.error);
@@ -50,6 +56,10 @@ export class HomeComponent implements OnInit {
 
     this.router.navigate(['/productVeiwDetails' , {productId: productId}])
 
+  }
+  public loadMoreProducts(){
+    this.pageNumber= this.pageNumber+1;
+    this.getProducts();
 
 
   }

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -73,12 +74,10 @@ public class ProductController {
     
    
     @GetMapping({ "/getAllProducts" })
-    public List<Product> getAllProducts() {
-        return productService.getAllProducts();
+    public List<Product> getAllProducts(@RequestParam(defaultValue="0")int pageNumber) {
+        return productService.getAllProducts(pageNumber);
 
     }
-    // @CrossOrigin(allowedHeaders = {"Authorization", "Origin"})
-    // @PreAuthorize("hasRole('Admin')")
 
     @CrossOrigin(origins = {
             "http://localhost:4200"

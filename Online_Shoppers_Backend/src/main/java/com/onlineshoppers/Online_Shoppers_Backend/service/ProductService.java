@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -21,9 +23,10 @@ public class ProductService {
     return productDao.save(product);
   }
 
-  public List<Product> getAllProducts() {
+  public List<Product> getAllProducts(int pageNumber) {
+    Pageable pageable =PageRequest.of(pageNumber,3);
 
-    return (List<Product>) productDao.findAll();
+    return (List<Product>) productDao.findAll( pageable);
   }
 
   public void deleteProductDetails(Integer productId) {

@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 })
 export class ShowProductDetailsComponent implements OnInit {
 
-
+  pageNumber:number=0;
   productDetails:Product[]=[];
   displayedColumns: string[] = ['Id', 'Product Name', 'description', 'Product Discounted Price','Product Actual Price','Actions'];
 
@@ -34,7 +34,7 @@ export class ShowProductDetailsComponent implements OnInit {
  
 
   public getAllProducts() {
-    this.productService.getAllProducts()
+    this.productService.getAllProducts(this.pageNumber)
     
     .pipe(
     map ((x:Product[],i)=>  x.map((product:Product )=>this.imageProcessingService.createImages(product)))

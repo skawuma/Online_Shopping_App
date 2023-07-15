@@ -35,7 +35,7 @@ import com.onlineshoppers.Online_Shoppers_Backend.service.ProductService;
 public class ProductController {
 
     @Autowired
-    private ProductService productService;
+    private ProductService  productService;
 
     @PreAuthorize("hasRole('Admin')")
     @PostMapping(value = { "/addNewProduct" }, consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
@@ -74,10 +74,14 @@ public class ProductController {
     
    
     @GetMapping({ "/getAllProducts" })
-    public List<Product> getAllProducts(@RequestParam(defaultValue="0")int pageNumber) {
-        return productService.getAllProducts(pageNumber);
+    public List<Product> getAllProducts(@RequestParam(defaultValue="0")int pageNumber,
+                                       @RequestParam(defaultValue="") String searchKey )
+     {
+       List<Product> result =productService.getAllProducts(pageNumber,searchKey);
 
-    }
+       System.out.println("result size is"+ result.size());
+       return result;
+      }
 
     @CrossOrigin(origins = {
             "http://localhost:4200"

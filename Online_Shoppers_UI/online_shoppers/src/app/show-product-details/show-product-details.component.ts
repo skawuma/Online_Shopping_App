@@ -34,9 +34,9 @@ export class ShowProductDetailsComponent implements OnInit {
   }
  
 
-  public getAllProducts() {
+  public getAllProducts(searchKey:any="") {
     this.showTable =false;
-    this.productService.getAllProducts(this.pageNumber)
+    this.productService.getAllProducts(this.pageNumber,searchKey)
     
 
     .pipe(
@@ -101,4 +101,12 @@ export class ShowProductDetailsComponent implements OnInit {
   
   
     }
+    public searchBykeyword(searchkeyword:any){
+      console .log (searchkeyword);
+      this.pageNumber=0;
+      this.productDetails =[];
+    this.getAllProducts(searchkeyword);
+    
+    }
+    
 }

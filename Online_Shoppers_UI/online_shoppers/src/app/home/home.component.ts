@@ -26,9 +26,9 @@ export class HomeComponent implements OnInit {
   }
 
 
-
-  public getProducts() {
-    this.productService.getAllProducts(this.pageNumber)
+    
+  public getProducts(searchKey:any="") {
+    this.productService.getAllProducts(this.pageNumber,searchKey)
     
     .pipe(
     map ((x:Product[],i)=>  x.map((product:Product )=>this.imageProcessingService.createImages(product)))
@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
     .subscribe(
       (resp: Product[]) => {
         console.log(resp);
-        if(resp.length ==3 ){
+        if(resp.length ==1){
           this.showLoadButton =true;
         }else{
           this.showLoadButton= false;
@@ -64,5 +64,12 @@ export class HomeComponent implements OnInit {
 
   }
 
+public searchBykeyword(searchkeyword:any){
+  console .log (searchkeyword);
+  this.pageNumber=0;
+  this.productDetails =[];
+this.getProducts(searchkeyword);
+
+}
 
 }

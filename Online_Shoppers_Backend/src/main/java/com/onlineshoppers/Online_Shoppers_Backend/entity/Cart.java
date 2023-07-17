@@ -5,8 +5,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -17,13 +15,11 @@ public class Cart{
  @GeneratedValue(strategy = GenerationType.IDENTITY)
 private Integer cartId;
 
- @OneToOne
+  @ManyToOne
 private Product product;
 
- @OneToOne
+ @ManyToOne
 private User user;
-
-
 
 public Cart(Product product, User user) {
     this.product = product;

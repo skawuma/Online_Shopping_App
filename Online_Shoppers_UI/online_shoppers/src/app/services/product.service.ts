@@ -30,7 +30,7 @@ return this.httpclient.get<Product[]> ("http://localhost:7070/api/product/getAll
     );
   }
   public getProductDetailsById(productId:any): Observable<any>{
-    return this.httpclient.get("http://localhost:7070/api/product/getProductDetailsById/ "
+    return this.httpclient.get("http://localhost:7070/api/product/getProductDetailsById/"
     + productId  
     );
   }
@@ -52,6 +52,11 @@ return this.httpclient.get<Product[]> ("http://localhost:7070/api/product/getAll
   public placeOrder(orderDetails:OrderDetails){
 
     return this.httpclient.post("http://localhost:7070/placeOrder",orderDetails);
+
+  }
+
+  public addToCart(productId:any){
+    return this.httpclient.get("http://localhost:7070/addToCart/" + productId);
   }
 
 }

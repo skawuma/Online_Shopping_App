@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../_model/product.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-product-view-details',
@@ -22,7 +23,8 @@ export class ProductViewDetailsComponent implements OnInit {
 
 
   constructor(private activatedRoute:ActivatedRoute,
-    private router:Router
+    private router:Router,
+    private productService: ProductService
     ) { }
 
   ngOnInit(): void {
@@ -40,6 +42,18 @@ export class ProductViewDetailsComponent implements OnInit {
   buyProduct(productId: any) {
    this.router.navigate(['/buyProduct', {isSingleProductCheckout: true, id:productId}])
 
+  }
+
+  addToCart(productId:any){
+    this.productService.addToCart(productId).subscribe(
+
+      (response)=> {
+       console.log(response);
+      },
+      (error)=>{
+        console.log(error);
+      }
+    );
   }
 
 }

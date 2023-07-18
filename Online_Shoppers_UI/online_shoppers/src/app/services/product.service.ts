@@ -35,14 +35,6 @@ return this.httpclient.get<Product[]> ("http://localhost:7070/api/product/getAll
     );
   }
 
-  public getProductDetailsById1(productId:any): Observable<any> {
-    return this.httpclient.get(`${this.baseUrl}/api/product/getProductDetailsById/${productId}`, { responseType: 'text' });
-  }
-
-  public deleteProduct1(productId: number): Observable<any> {
-    return this.httpclient.delete(`${this.baseUrl}/api/product/deleteProductDetails/${productId}`, { responseType: 'text' });
-  }
-
   public  getProductDetails(isSingleProductCheckout: any,productId: any) {
     return this.httpclient.get<Product[]>("http://localhost:7070/api/product/getProductDetails/"+isSingleProductCheckout+"/"
     + productId  
@@ -59,4 +51,8 @@ return this.httpclient.get<Product[]> ("http://localhost:7070/api/product/getAll
     return this.httpclient.get("http://localhost:7070/addToCart/" + productId);
   }
 
+
+  public getCartDetails(){
+    return this.httpclient.get("http://localhost:7070/getCartDetails"); 
+  }
 }

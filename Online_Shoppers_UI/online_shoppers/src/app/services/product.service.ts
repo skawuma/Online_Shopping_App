@@ -41,9 +41,9 @@ return this.httpclient.get<Product[]> ("http://localhost:7070/api/product/getAll
     );
   }
 
-  public placeOrder(orderDetails:OrderDetails){
+  public placeOrder(orderDetails:OrderDetails,isCartCheckedout:any){
 
-    return this.httpclient.post("http://localhost:7070/placeOrder",orderDetails);
+    return this.httpclient.post("http://localhost:7070/placeOrder/"+isCartCheckedout,orderDetails);
 
   }
 
@@ -54,5 +54,10 @@ return this.httpclient.get<Product[]> ("http://localhost:7070/api/product/getAll
 
   public getCartDetails(){
     return this.httpclient.get("http://localhost:7070/getCartDetails"); 
+  }
+  public  deleteCartItem(cartId: number) {
+    return this.httpclient.delete("http://localhost:7070/deleteCartItem/"
+    + cartId 
+    );
   }
 }

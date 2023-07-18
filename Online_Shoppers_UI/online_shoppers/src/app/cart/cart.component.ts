@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-cart',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  displayedColumns: string[] = [ 'Product Name', 'Description','Product Actual Price', 'Product Discounted Price'];
+  displayedColumns: string[] = [ 'Product Name', 'Description','Product Actual Price', 'Product Discounted Price','Action'];
   cartDetails: any[] =[];
   constructor( private productService:ProductService,
 
@@ -47,6 +48,19 @@ this.productService.getCartDetails().subscribe(
     //   }
     // );
 
+  }
+
+  public deleteCartItem(cartId: number) {
+    this.productService.deleteCartItem(cartId).subscribe(
+      (resp) => {
+        this.getCartDetails();
+      },
+
+      (error: HttpErrorResponse) => {
+
+        console.log(error);
+      }
+    );
   }
 
 }

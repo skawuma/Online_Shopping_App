@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -9,7 +10,10 @@ import { ProductService } from '../services/product.service';
 export class CartComponent implements OnInit {
   displayedColumns: string[] = [ 'Product Name', 'Description','Product Actual Price', 'Product Discounted Price'];
   cartDetails: any[] =[];
-  constructor( private productService:ProductService) { }
+  constructor( private productService:ProductService,
+
+    private router:Router
+    ) { }
 
   ngOnInit(): void {
    this.getCartDetails();
@@ -27,6 +31,21 @@ this.productService.getCartDetails().subscribe(
     console.log(error);
   }
 );
+
+  }
+  checkOut(){
+
+
+    this.router.navigate(['/buyProduct', {isSingleProductCheckout: false, id:0}]);
+    // this.productService.getProductDetails(false,0).subscribe(
+
+    //   (response:any)=>{
+    //     console.log(response);
+    //   },
+    //   (error)=>{
+    //     console.log(error);
+    //   }
+    // );
 
   }
 

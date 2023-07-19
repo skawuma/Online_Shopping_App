@@ -71,7 +71,7 @@ return this.httpclient.get<Product[]> ("http://localhost:7070/api/product/getAll
     return this.httpclient.get<MyOrderDetails[]>("http://localhost:7070/getOrderDetails"); 
   }
 
-  public getAllOrderDetails(): Observable<MyOrderDetails[]>{
-    return this.httpclient.get<MyOrderDetails[]>("http://localhost:7070/getAllOrderDetails"); 
+  public getAllOrderDetails(status:String): Observable<MyOrderDetails[]>{
+    return this.httpclient.get<MyOrderDetails[]>("http://localhost:7070/getAllOrderDetails/"+status); 
   }
 }

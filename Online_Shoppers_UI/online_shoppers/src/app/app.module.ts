@@ -18,7 +18,7 @@ import { AuthInterceptor } from './_auth/auth.interceptor';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { MatButtonModule } from '@angular/material/button';
 
  import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
@@ -79,7 +79,8 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
     MatGridListModule,
     MatTableModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatButtonToggleModule
     
     // NgbModule.forRoot()
   ],

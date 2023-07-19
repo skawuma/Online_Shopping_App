@@ -81,7 +81,7 @@ private CartDao cartDao;
 }
 
 
-public List<OrderDetail> getOrderDetails() {
+public List<OrderDetail> getOrderDetails( ) {
 
   String username = JwtRequestFilter.CURRENT_USER;
     User user = userDao.findById(username).get();
@@ -90,28 +90,31 @@ public List<OrderDetail> getOrderDetails() {
 
 }
 
+public List<OrderDetail> getAllOrderDetails(String status) {
 
-      public List<OrderDetail> getAllOrderDetails(){
+  List<OrderDetail> orderDetails = new ArrayList<>();
+  if (status.equals("All")) {
+    orderDetailsDao.findAll().forEach(
+        x -> orderDetails.add(x));
+  } else {
+    orderDetailsDao.findByOrderStatus(status).forEach(
+        x -> orderDetails.add(x));
+  }
+  return orderDetails;
 
-         List<OrderDetail>  orderDetails =new ArrayList<>();
-        orderDetailsDao.findAll().forEach(
-          x-> orderDetails.add(x)
-        );
-        return orderDetails;
-  
-       // return (List<OrderDetail>) orderDetailsDao.findAll();
-      }
+  // return (List<OrderDetail>) orderDetailsDao.findAll();
+}
 
-      public void markOrderAsDelivered(Integer orderId){
-        OrderDetail orderDetail= orderDetailsDao.findById(orderId).get();
-  if (orderDetail!= null){
+public void markOrderAsDelivered(Integer orderId) {
+  OrderDetail orderDetail = orderDetailsDao.findById(orderId).get();
+  if (orderDetail != null) {
     orderDetail.setOrderStatus("Delivered");
     orderDetailsDao.save(orderDetail);
   }
 
-      }
+}
 
-      }
+}
 
   
     

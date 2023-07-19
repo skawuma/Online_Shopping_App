@@ -10,16 +10,16 @@ import { MyOrderDetails } from '../_model/order.model';
 export class OrderDetailsComponent implements OnInit {
   displayedColumns: string[] = ['Name', 'Address', 'ContactNo', 'Amount', 'Status', 'Action'];
   myOrderDetails: MyOrderDetails[] = [];
-
+  status: string= 'All'
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.getAllOrderDetails();
+    this.getAllOrderDetails(this.status);
   }
 
-  public getAllOrderDetails() {
+  public getAllOrderDetails( statusParam:string) {
 
-    this.productService.getAllOrderDetails().subscribe(
+    this.productService.getAllOrderDetails(statusParam).subscribe(
 
       (resp: MyOrderDetails[]) => {
         console.log(resp);
@@ -36,7 +36,7 @@ export class OrderDetailsComponent implements OnInit {
     this.productService.markOrderAsDelivered(orderId).subscribe(
 
       (resp) => {
-        this.getAllOrderDetails();
+        this.getAllOrderDetails(this.status);
         console.log(resp);
 
       },

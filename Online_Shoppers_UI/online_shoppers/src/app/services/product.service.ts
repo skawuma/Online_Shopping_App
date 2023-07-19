@@ -4,6 +4,7 @@ import { Product } from '../_model/product.model';
 import { Observable } from 'rxjs';
 import { AnimationStyleMetadata } from '@angular/animations';
 import { OrderDetails } from '../_model/order-detail.model';
+import { MyOrderDetails } from '../_model/order.model';
 
 @Injectable({
   providedIn: 'root'
@@ -59,5 +60,10 @@ return this.httpclient.get<Product[]> ("http://localhost:7070/api/product/getAll
     return this.httpclient.delete("http://localhost:7070/deleteCartItem/"
     + cartId 
     );
+  }
+
+
+  public getOrderDetails(): Observable<MyOrderDetails[]>{
+    return this.httpclient.get<MyOrderDetails[]>("http://localhost:7070/getOrderDetails"); 
   }
 }

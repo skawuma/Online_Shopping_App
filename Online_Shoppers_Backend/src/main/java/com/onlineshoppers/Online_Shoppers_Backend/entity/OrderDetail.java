@@ -19,7 +19,7 @@ public class OrderDetail {
     private Integer orderId;
    
     private String orderFullName;
-    private String orderFullOrder;
+    
     private String orderFullAddress; 
     private String orderContactNumber;
     private String orderAlternateContactNumber;
@@ -32,6 +32,12 @@ public class OrderDetail {
     @ManyToOne
     private User user;
 
+
+    
+
+
+    public OrderDetail() {
+    }
 
 
     public OrderDetail(String orderFullName, String orderFullAddress, String orderContactNumber,
@@ -63,13 +69,7 @@ public class OrderDetail {
         this.orderFullName = orderFullName;
     }
 
-    public String getOrderFullOrder() {
-        return orderFullOrder;
-    }
-
-    public void setOrderFullOrder(String orderFullOrder) {
-        this.orderFullOrder = orderFullOrder;
-    }
+ 
 
     public String getOrderFullAddress() {
         return orderFullAddress;

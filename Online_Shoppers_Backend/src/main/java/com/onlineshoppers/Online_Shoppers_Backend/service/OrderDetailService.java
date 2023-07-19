@@ -1,4 +1,5 @@
 package com.onlineshoppers.Online_Shoppers_Backend.service;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,6 +80,27 @@ private CartDao cartDao;
 
 }
 
+
+public List<OrderDetail> getOrderDetails() {
+
+  String username = JwtRequestFilter.CURRENT_USER;
+    User user = userDao.findById(username).get();
+
+    return orderDetailsDao.findByUser(user);
+
+}
+
+
+      public List<OrderDetail> getAllOrderDetails(){
+
+         List<OrderDetail>  orderDetails =new ArrayList<>();
+        orderDetailsDao.findAll().forEach(
+          x-> orderDetails.add(x)
+        );
+        return orderDetails;
+  
+       // return (List<OrderDetail>) orderDetailsDao.findAll();
+      }
 
       }
 

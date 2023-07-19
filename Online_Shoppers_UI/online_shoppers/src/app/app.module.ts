@@ -39,6 +39,7 @@ import { BuyProductComponent } from './buy-product/buy-product.component';
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 import { RegisterComponent } from './register/register.component';
 import { CartComponent } from './cart/cart.component';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
 
 
 
@@ -59,7 +60,8 @@ import { CartComponent } from './cart/cart.component';
     BuyProductComponent,
     OrderConfirmationComponent,
     RegisterComponent,
-    CartComponent
+    CartComponent,
+    MyOrdersComponent
   ],
   imports: [
     BrowserModule,

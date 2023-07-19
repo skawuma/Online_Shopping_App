@@ -102,6 +102,15 @@ public List<OrderDetail> getOrderDetails() {
        // return (List<OrderDetail>) orderDetailsDao.findAll();
       }
 
+      public void markOrderAsDelivered(Integer orderId){
+        OrderDetail orderDetail= orderDetailsDao.findById(orderId).get();
+  if (orderDetail!= null){
+    orderDetail.setOrderStatus("Delivered");
+    orderDetailsDao.save(orderDetail);
+  }
+
+      }
+
       }
 
   
